@@ -33,7 +33,7 @@ const state = {
 const starterContent = {
   settings: {
     doctor: {
-      name: "Dr. Hazzar Ahmed",
+      name: "Dr Asif Mushtaq",
       credentials: "BDS, FCPS - Oral & Maxillofacial Surgery",
     },
     hero: {
@@ -42,10 +42,10 @@ const starterContent = {
         "Personalized dental surgery, restorative dentistry, and cosmetic care in a calm, modern clinic designed around comfort, clarity, and long-term oral health.",
     },
     contact: {
-      phone: "+92 300 1234567",
-      whatsapp: "+92 300 1234567",
-      email: "appointments@hazzardental.com",
-      address: "Suite 12, Main Boulevard, Lahore",
+      phone: "+92 300 9844763",
+      whatsapp: "+92 300 9844763",
+      email: "asifmushtaq@gmail.com",
+      address: "857-A, J-2 Block Market, Phase 2, Johar Town, Lahore",
     },
     hours: {
       weekdays: "9:00 AM - 6:00 PM",

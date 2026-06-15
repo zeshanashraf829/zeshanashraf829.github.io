@@ -9,6 +9,7 @@ const firebaseClientPath = new URL("../assets/js/firebase-client.js", import.met
 const siteCmsPath = new URL("../assets/js/site-cms.js", import.meta.url);
 const adminJsPath = new URL("../assets/js/admin.js", import.meta.url);
 const stylesPath = new URL("../assets/css/styles.css", import.meta.url);
+const logoPath = new URL("../assets/images/dr-asif-logo.jpg", import.meta.url);
 const firestoreRulesPath = new URL("../firebase/firestore.rules", import.meta.url);
 
 function readHtml() {
@@ -130,6 +131,27 @@ test("gallery comparison labels stay attached to the before and after image grid
     /\.case-card\s*>\s*div\s*>\s*span\s*\{/,
     "Case category styling should be scoped to the content metadata span"
   );
+});
+
+test("default clinic identity uses Dr Asif Mushtaq details and circular logo", () => {
+  const html = readHtml();
+  const admin = readFileSync(adminPath, "utf8");
+  const adminJs = readFileSync(adminJsPath, "utf8");
+  const css = readFileSync(stylesPath, "utf8");
+
+  assert.ok(existsSync(logoPath), "Dr Asif logo should be committed as a local site asset");
+
+  for (const source of [html, admin, adminJs]) {
+    assert.match(source, /Dr Asif Mushtaq/);
+    assert.match(source, /asifmushtaq@gmail\.com/);
+    assert.match(source, /\+92 300 9844763/);
+    assert.match(source, /857-A, J-2 Block Market, Phase 2, Johar Town, Lahore/);
+    assert.doesNotMatch(source, /Dr\. Hazzar Ahmed|Hazzar Dental|appointments@hazzardental\.com|\+92 300 1234567|Suite 12, Main Boulevard/);
+  }
+
+  assert.match(html, /assets\/images\/dr-asif-logo\.jpg/);
+  assert.match(admin, /assets\/images\/dr-asif-logo\.jpg/);
+  assert.match(css, /\.brand-mark\s+img\s*\{[^}]*border-radius:\s*50%/s);
 });
 
 test("public site is wired for Firebase CMS hydration and appointment storage", () => {
