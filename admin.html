@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0EA5E9" />
+    <title>Admin Login | Dr. Hazzar Ahmed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script type="module" src="assets/js/admin.js"></script>
+  </head>
+  <body class="admin-body">
+    <main class="admin-root" data-admin-root>
+      <section class="admin-login" data-login-screen>
+        <div class="admin-login-card">
+          <a class="brand" href="index.html" aria-label="Back to public website">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span>
+              <strong>Dr. Hazzar Ahmed</strong>
+              <small>Website Admin</small>
+            </span>
+          </a>
+
+          <div>
+            <p class="eyebrow">Secure CMS</p>
+            <h1>Admin Login</h1>
+            <p>Manage appointments, services, gallery images, reviews, FAQs, and clinic content.</p>
+          </div>
+
+          <div class="setup-alert" data-config-warning hidden>
+            Firebase is not configured yet. Add your Firebase web config in
+            <code>assets/js/firebase-config.js</code>.
+          </div>
+
+          <form class="admin-form" data-login-form>
+            <label for="adminEmail">Email</label>
+            <input id="adminEmail" name="email" type="email" autocomplete="email" required placeholder="ranazeshi41@gmail.com" />
+            <label for="adminPassword">Password</label>
+            <input id="adminPassword" name="password" type="password" autocomplete="current-password" required placeholder="Your password" />
+            <button class="btn btn-primary" type="submit">
+              <span>Sign In</span>
+              <i data-lucide="log-in" aria-hidden="true"></i>
+            </button>
+            <p class="form-status" role="status" aria-live="polite" data-login-status></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-shell" data-dashboard-screen hidden>
+        <aside class="admin-sidebar">
+          <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span>
+              <strong>Dental CMS</strong>
+              <small data-admin-email>Signed in</small>
+            </span>
+          </a>
+
+          <nav class="admin-nav" aria-label="Admin sections">
+            <button class="active" type="button" data-admin-view="appointments">
+              <i data-lucide="inbox" aria-hidden="true"></i>
+              Appointments
+            </button>
+            <button type="button" data-admin-view="services">
+              <i data-lucide="stethoscope" aria-hidden="true"></i>
+              Services
+            </button>
+            <button type="button" data-admin-view="gallery">
+              <i data-lucide="images" aria-hidden="true"></i>
+              Gallery
+            </button>
+            <button type="button" data-admin-view="testimonials">
+              <i data-lucide="star" aria-hidden="true"></i>
+              Testimonials
+            </button>
+            <button type="button" data-admin-view="faqs">
+              <i data-lucide="circle-help" aria-hidden="true"></i>
+              FAQ
+            </button>
+            <button type="button" data-admin-view="settings">
+              <i data-lucide="settings" aria-hidden="true"></i>
+              Clinic Settings
+            </button>
+          </nav>
+
+          <button class="btn btn-secondary admin-signout" type="button" data-signout>
+            <i data-lucide="log-out" aria-hidden="true"></i>
+            <span>Sign Out</span>
+          </button>
+        </aside>
+
+        <div class="admin-content">
+          <header class="admin-topbar">
+            <div>
+              <p class="eyebrow">Live Website CMS</p>
+              <h1>Doctor Website Control Panel</h1>
+            </div>
+            <div class="admin-topbar-actions">
+              <button class="btn btn-secondary" type="button" data-seed-content>
+                <i data-lucide="database" aria-hidden="true"></i>
+                <span>Load Starter Content</span>
+              </button>
+              <a class="btn btn-secondary" href="index.html" target="_blank" rel="noopener">
+                <span>View Website</span>
+                <i data-lucide="external-link" aria-hidden="true"></i>
+              </a>
+            </div>
+          </header>
+
+          <p class="admin-global-status" role="status" aria-live="polite" data-admin-status></p>
+
+          <section class="admin-panel active" data-admin-panel="appointments">
+            <div class="admin-section-heading">
+              <div>
+                <h2>Appointments</h2>
+                <p>New website booking requests are saved here from the public form.</p>
+              </div>
+            </div>
+            <div class="admin-list" data-list="appointments"></div>
+          </section>
+
+          <section class="admin-panel" data-admin-panel="services">
+            <div class="admin-section-heading">
+              <div>
+                <h2>Services</h2>
+                <p>Add or edit treatment cards shown on the public website.</p>
+              </div>
+            </div>
+            <form class="admin-editor" data-admin-form="services">
+              <input type="hidden" name="id" />
+              <div class="form-row two-columns">
+                <div>
+                  <label>Title</label>
+                  <input name="title" required placeholder="Dental Cleaning" />
+                </div>
+                <div>
+                  <label>Lucide Icon</label>
+                  <input name="icon" required placeholder="sparkles" />
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Description</label>
+                <textarea name="description" rows="3" required placeholder="Short service description"></textarea>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Order</label>
+                  <input name="order" type="number" value="1" min="0" />
+                </div>
+                <label class="admin-check">
+                  <input name="active" type="checkbox" checked />
+                  Visible on website
+                </label>
+              </div>
+              <button class="btn btn-primary" type="submit">Save Service</button>
+              <button class="btn btn-secondary" type="reset">Clear</button>
+            </form>
+            <div class="admin-list" data-list="services"></div>
+          </section>
+
+          <section class="admin-panel" data-admin-panel="gallery">
+            <div class="admin-section-heading">
+              <div>
+                <h2>Gallery</h2>
+                <p>Manage before/after image cards and categories.</p>
+              </div>
+            </div>
+            <form class="admin-editor" data-admin-form="gallery">
+              <input type="hidden" name="id" />
+              <div class="form-row two-columns">
+                <div>
+                  <label>Case Title</label>
+                  <input name="title" required placeholder="In-Clinic Whitening" />
+                </div>
+                <div>
+                  <label>Category</label>
+                  <select name="category" required>
+                    <option value="whitening">Whitening</option>
+                    <option value="braces">Braces</option>
+                    <option value="implants">Implants</option>
+                    <option value="cosmetic-dentistry">Cosmetic Dentistry</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Description</label>
+                <textarea name="description" rows="3" required placeholder="Short case summary"></textarea>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Before Image URL or Code Path</label>
+                  <input name="beforeImageUrl" placeholder="assets/images/gallery/before-case-1.jpg or https://..." />
+                </div>
+                <div>
+                  <label>After Image URL or Code Path</label>
+                  <input name="afterImageUrl" placeholder="assets/images/gallery/after-case-1.jpg or https://..." />
+                </div>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Order</label>
+                  <input name="order" type="number" value="1" min="0" />
+                </div>
+                <label class="admin-check">
+                  <input name="active" type="checkbox" checked />
+                  Visible on website
+                </label>
+              </div>
+              <button class="btn btn-primary" type="submit">Save Gallery Case</button>
+              <button class="btn btn-secondary" type="reset">Clear</button>
+            </form>
+            <div class="admin-list" data-list="gallery"></div>
+          </section>
+
+          <section class="admin-panel" data-admin-panel="testimonials">
+            <div class="admin-section-heading">
+              <div>
+                <h2>Testimonials</h2>
+                <p>Publish patient reviews and ratings.</p>
+              </div>
+            </div>
+            <form class="admin-editor" data-admin-form="testimonials">
+              <input type="hidden" name="id" />
+              <div class="form-row two-columns">
+                <div>
+                  <label>Patient Name</label>
+                  <input name="patientName" required placeholder="Sara Malik" />
+                </div>
+                <div>
+                  <label>Role / Treatment</label>
+                  <input name="role" required placeholder="Cosmetic Dentistry Patient" />
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Review</label>
+                <textarea name="review" rows="4" required placeholder="Patient review text"></textarea>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Rating</label>
+                  <select name="rating">
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Order</label>
+                  <input name="order" type="number" value="1" min="0" />
+                </div>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Patient Photo URL or Code Path</label>
+                  <input name="photoUrl" placeholder="assets/images/testimonials/patient-1.jpg or https://..." />
+                </div>
+                <label class="admin-check">
+                  <input name="active" type="checkbox" checked />
+                  Visible on website
+                </label>
+              </div>
+              <button class="btn btn-primary" type="submit">Save Testimonial</button>
+              <button class="btn btn-secondary" type="reset">Clear</button>
+            </form>
+            <div class="admin-list" data-list="testimonials"></div>
+          </section>
+
+          <section class="admin-panel" data-admin-panel="faqs">
+            <div class="admin-section-heading">
+              <div>
+                <h2>FAQ</h2>
+                <p>Manage common treatment questions.</p>
+              </div>
+            </div>
+            <form class="admin-editor" data-admin-form="faqs">
+              <input type="hidden" name="id" />
+              <div class="form-row">
+                <label>Question</label>
+                <input name="question" required placeholder="Does whitening damage enamel?" />
+              </div>
+              <div class="form-row">
+                <label>Answer</label>
+                <textarea name="answer" rows="4" required placeholder="Clear patient-friendly answer"></textarea>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Order</label>
+                  <input name="order" type="number" value="1" min="0" />
+                </div>
+                <label class="admin-check">
+                  <input name="active" type="checkbox" checked />
+                  Visible on website
+                </label>
+              </div>
+              <button class="btn btn-primary" type="submit">Save FAQ</button>
+              <button class="btn btn-secondary" type="reset">Clear</button>
+            </form>
+            <div class="admin-list" data-list="faqs"></div>
+          </section>
+
+          <section class="admin-panel" data-admin-panel="settings">
+            <div class="admin-section-heading">
+              <div>
+                <h2>Clinic Settings</h2>
+                <p>Update website copy, doctor details, contact info, hours, and social links.</p>
+              </div>
+            </div>
+            <form class="admin-editor" data-settings-form>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Doctor Name</label>
+                  <input name="doctor.name" required placeholder="Dr. Hazzar Ahmed" />
+                </div>
+                <div>
+                  <label>Credentials</label>
+                  <input name="doctor.credentials" placeholder="BDS, FCPS - Oral & Maxillofacial Surgery" />
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Hero Headline</label>
+                <input name="hero.headline" required placeholder="Creating Healthy & Confident Smiles" />
+              </div>
+              <div class="form-row">
+                <label>Hero Description</label>
+                <textarea name="hero.description" rows="3" required placeholder="Short hero paragraph"></textarea>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Phone</label>
+                  <input name="contact.phone" required placeholder="+92 300 1234567" />
+                </div>
+                <div>
+                  <label>WhatsApp</label>
+                  <input name="contact.whatsapp" required placeholder="+92 300 1234567" />
+                </div>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Email</label>
+                  <input name="contact.email" type="email" required placeholder="appointments@hazzardental.com" />
+                </div>
+                <div>
+                  <label>Address</label>
+                  <input name="contact.address" required placeholder="Suite 12, Main Boulevard, Lahore" />
+                </div>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Hours Line 1</label>
+                  <input name="hours.weekdays" placeholder="Mon - Fri: 9:00 AM - 6:00 PM" />
+                </div>
+                <div>
+                  <label>Hours Line 2</label>
+                  <input name="hours.weekend" placeholder="Sat: 10:00 AM - 4:00 PM" />
+                </div>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Instagram URL</label>
+                  <input name="social.instagram" type="url" placeholder="https://instagram.com/..." />
+                </div>
+                <div>
+                  <label>Facebook URL</label>
+                  <input name="social.facebook" type="url" placeholder="https://facebook.com/..." />
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit">Save Clinic Settings</button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Premium dentist portfolio website for Dr. Hazzar Ahmed, an experienced dental surgeon offering cosmetic dentistry, implants, orthodontics, root canal treatment, and preventive care."
+    />
+    <meta
+      name="keywords"
+      content="dentist, dental surgeon, dental clinic, dental implants, teeth whitening, root canal, cosmetic dentistry, orthodontics"
+    />
+    <meta name="theme-color" content="#0EA5E9" />
+    <meta property="og:title" content="Dr. Hazzar Ahmed | Dental Surgeon" />
+    <meta
+      property="og:description"
+      content="Creating healthy and confident smiles with modern dental care, advanced technology, and patient-centered treatment."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1588776814594-6d444894210e?auto=format&fit=crop&w=1400&q=80" />
+    <title>Dr. Hazzar Ahmed | Premium Dentist Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script type="module" src="assets/js/site-cms.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Dr. Hazzar Ahmed Dental Surgery",
+        "image": "https://images.unsplash.com/photo-1588776814594-6d444894210e?auto=format&fit=crop&w=1400&q=80",
+        "telephone": "+92 300 1234567",
+        "email": "appointments@hazzardental.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Suite 12, Main Boulevard",
+          "addressLocality": "Lahore",
+          "addressCountry": "PK"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "16:00"
+          }
+        ],
+        "medicalSpecialty": ["Cosmetic Dentistry", "Dental Implants", "Endodontics", "Orthodontics"]
+      }
+    </script>
+  </head>
+  <body data-cms-root>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Dr. Hazzar Ahmed home">
+          <span class="brand-mark" aria-hidden="true">H</span>
+          <span>
+            <strong data-cms-field="doctor.name">Dr. Hazzar Ahmed</strong>
+            <small>Dental Surgeon</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+
+        <div class="nav-menu" data-nav-menu>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <a class="btn btn-primary nav-cta" href="#appointment">
+          <span>Book Appointment</span>
+          <i data-lucide="calendar-days" aria-hidden="true"></i>
+        </a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section" id="home" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <i data-lucide="badge-check" aria-hidden="true"></i>
+              Premium Dental Care
+            </p>
+            <h1 id="hero-title" data-cms-field="hero.headline">Creating Healthy &amp; Confident Smiles</h1>
+            <p class="hero-lead" data-cms-field="hero.description">
+              Personalized dental surgery, restorative dentistry, and cosmetic care in a calm, modern clinic designed around comfort, clarity, and long-term oral health.
+            </p>
+            <div class="doctor-line">
+              <strong data-cms-field="doctor.name">Dr. Hazzar Ahmed</strong>
+              <span data-cms-field="doctor.credentials">BDS, FCPS - Oral &amp; Maxillofacial Surgery</span>
+            </div>
+            <div class="hero-actions" aria-label="Hero actions">
+              <a class="btn btn-primary" href="#appointment">
+                <span>Book Appointment</span>
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <a
+                class="btn btn-secondary"
+                data-cms-whatsapp-link
+                href="https://wa.me/923001234567?text=Hello%20Dr.%20Hazzar%20Ahmed%2C%20I%20would%20like%20a%20dental%20consultation."
+                target="_blank"
+                rel="noopener"
+              >
+                <i data-lucide="message-circle" aria-hidden="true"></i>
+                <span>WhatsApp Consultation</span>
+              </a>
+            </div>
+            <div class="hero-trust" aria-label="Trust indicators">
+              <div>
+                <strong>10+ Years Experience</strong>
+                <span>Advanced clinical practice</span>
+              </div>
+              <div>
+                <strong>1000+ Happy Patients</strong>
+                <span>Gentle, trusted care</span>
+              </div>
+              <div>
+                <strong>Modern Equipment</strong>
+                <span>Digital diagnostics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Dental surgeon working in a clinic">
+            <img
+              src="https://images.unsplash.com/photo-1588776814594-6d444894210e?auto=format&fit=crop&w=1100&q=80"
+              alt="Dental surgeon treating a patient in a modern clinic"
+            />
+            <div class="hero-badge top-badge">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <span>Sterile Surgical Suite</span>
+            </div>
+            <div class="hero-badge bottom-badge">
+              <i data-lucide="sparkles" aria-hidden="true"></i>
+              <span>Smile Makeovers</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Clinic highlights">
+        <div class="container trust-strip-grid">
+          <div>
+            <i data-lucide="microscope" aria-hidden="true"></i>
+            <span>Digital X-ray &amp; 3D Planning</span>
+          </div>
+          <div>
+            <i data-lucide="heart-pulse" aria-hidden="true"></i>
+            <span>Pain-Controlled Treatment</span>
+          </div>
+          <div>
+            <i data-lucide="clock-3" aria-hidden="true"></i>
+            <span>Same-Day Emergency Support</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="container about-grid">
+          <div class="section-heading">
+            <p class="eyebrow">About the Doctor</p>
+            <h2 id="about-title">Experienced Dental Surgeon With a Patient-First Philosophy</h2>
+            <p>
+              Dr. Hazzar combines surgical precision with calm communication, helping patients understand every option before treatment begins.
+            </p>
+          </div>
+
+          <div class="profile-card">
+            <img
+              src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
+              alt="Dentist reviewing a dental X-ray before treatment planning"
+            />
+            <div class="profile-content">
+              <h3>Dr. Hazzar Ahmed</h3>
+              <p>
+                Dental surgeon focused on restorative care, implants, endodontics, and cosmetic smile design.
+              </p>
+              <a href="#appointment" class="text-link">
+                Request a consultation
+                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="credentials">
+            <article>
+              <i data-lucide="graduation-cap" aria-hidden="true"></i>
+              <h3>Education</h3>
+              <p>BDS with advanced clinical training in oral surgery and restorative dentistry.</p>
+            </article>
+            <article>
+              <i data-lucide="award" aria-hidden="true"></i>
+              <h3>Certifications</h3>
+              <p>Implant dentistry, endodontic care, infection control, and cosmetic treatment planning.</p>
+            </article>
+            <article>
+              <i data-lucide="briefcase-medical" aria-hidden="true"></i>
+              <h3>Experience</h3>
+              <p>10+ years treating complex dental cases with modern digital equipment.</p>
+            </article>
+          </div>
+
+          <div class="timeline" aria-label="Achievement timeline">
+            <div class="timeline-item">
+              <span>2014</span>
+              <p>Completed advanced dental surgery training and began private practice.</p>
+            </div>
+            <div class="timeline-item">
+              <span>2018</span>
+              <p>Expanded clinical focus to implants, smile design, and complex restorations.</p>
+            </div>
+            <div class="timeline-item">
+              <span>2024</span>
+              <p>Introduced digital treatment planning and upgraded sterilization workflows.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="services" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">Services</p>
+            <h2 id="services-title">Complete Dental Care Under One Roof</h2>
+            <p>
+              Preventive, surgical, restorative, and aesthetic treatments delivered with thoughtful planning and gentle chairside care.
+            </p>
+          </div>
+
+          <div class="service-grid" data-cms-section="services">
+            <article class="service-card">
+              <i data-lucide="sparkles" aria-hidden="true"></i>
+              <h3>Dental Cleaning</h3>
+              <p>Professional scaling, polishing, and gum-health checks to keep your smile fresh and healthy.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+            <article class="service-card">
+              <i data-lucide="activity" aria-hidden="true"></i>
+              <h3>Root Canal Treatment</h3>
+              <p>Comfort-led endodontic care that saves infected teeth and relieves pain precisely.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+            <article class="service-card">
+              <i data-lucide="sun" aria-hidden="true"></i>
+              <h3>Teeth Whitening</h3>
+              <p>Clinician-supervised whitening plans for a brighter smile with enamel-safe protocols.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+            <article class="service-card">
+              <i data-lucide="circle-dot" aria-hidden="true"></i>
+              <h3>Dental Implants</h3>
+              <p>Natural-looking tooth replacement planned for stability, function, and long-term confidence.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+            <article class="service-card">
+              <i data-lucide="align-center-horizontal" aria-hidden="true"></i>
+              <h3>Braces &amp; Orthodontics</h3>
+              <p>Alignment options for better bite balance, aesthetics, and easier daily oral hygiene.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+            <article class="service-card">
+              <i data-lucide="shield-plus" aria-hidden="true"></i>
+              <h3>Tooth Extraction</h3>
+              <p>Careful removal of damaged or impacted teeth with strong comfort and recovery guidance.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+            <article class="service-card">
+              <i data-lucide="badge-plus" aria-hidden="true"></i>
+              <h3>Fillings</h3>
+              <p>Tooth-colored restorations designed to protect structure and blend with your smile.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+            <article class="service-card">
+              <i data-lucide="wand-sparkles" aria-hidden="true"></i>
+              <h3>Cosmetic Dentistry</h3>
+              <p>Veneers, bonding, contouring, and smile design for refined, natural-looking results.</p>
+              <a href="#appointment">Learn More</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section why-section" aria-labelledby="why-title">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">Why Choose Us</p>
+            <h2 id="why-title">Care That Feels Precise, Calm, and Personal</h2>
+          </div>
+
+          <div class="why-grid">
+            <article>
+              <i data-lucide="user-check" aria-hidden="true"></i>
+              <h3>Experienced Dentist</h3>
+              <p>Confident clinical judgment across preventive, surgical, and aesthetic treatment plans.</p>
+            </article>
+            <article>
+              <i data-lucide="scan-line" aria-hidden="true"></i>
+              <h3>Latest Technology</h3>
+              <p>Digital diagnostics, clear imaging, and treatment planning that patients can understand.</p>
+            </article>
+            <article>
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <h3>Sterilized Environment</h3>
+              <p>Strict instrument processing and room turnover standards for every visit.</p>
+            </article>
+            <article>
+              <i data-lucide="wallet-cards" aria-hidden="true"></i>
+              <h3>Affordable Treatment</h3>
+              <p>Transparent treatment options with phased planning for complex cases.</p>
+            </article>
+            <article>
+              <i data-lucide="phone-call" aria-hidden="true"></i>
+              <h3>Emergency Support</h3>
+              <p>Fast guidance for pain, swelling, injury, broken teeth, and urgent consultations.</p>
+            </article>
+            <article>
+              <i data-lucide="heart-handshake" aria-hidden="true"></i>
+              <h3>Patient-Centered Care</h3>
+              <p>Warm communication, clear consent, and treatment paced around your comfort.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+          <div class="section-heading split">
+            <div>
+              <p class="eyebrow">Before &amp; After Gallery</p>
+              <h2 id="gallery-title">Smile Transformations</h2>
+              <p>Illustrative clinical-style case cards for whitening, braces, implants, and cosmetic dentistry.</p>
+            </div>
+            <div class="filter-tabs" role="tablist" aria-label="Filter gallery">
+              <button class="active" type="button" data-filter="all">All</button>
+              <button type="button" data-filter="whitening">Whitening</button>
+              <button type="button" data-filter="braces">Braces</button>
+              <button type="button" data-filter="implants">Implants</button>
+              <button type="button" data-filter="cosmetic-dentistry">Cosmetic Dentistry</button>
+            </div>
+          </div>
+
+          <div class="gallery-grid" data-cms-section="gallery">
+            <article class="case-card" data-category="whitening">
+              <button
+                type="button"
+                data-lightbox
+                data-image="https://images.unsplash.com/photo-1667133295315-820bb6481730?auto=format&fit=crop&w=1400&q=80"
+                data-title="Whitening Treatment"
+                aria-label="Open image preview for whitening treatment"
+              >
+                <span class="comparison">
+                  <img
+                    src="https://images.unsplash.com/photo-1667133295315-820bb6481730?auto=format&fit=crop&w=700&q=80"
+                    alt="Before whitening treatment in a dental clinic"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1617812191081-2a24e3f30e45?auto=format&fit=crop&w=700&q=80"
+                    alt="After whitening with a bright natural smile"
+                  />
+                </span>
+              </button>
+              <div>
+                <span>Whitening</span>
+                <h3>In-Clinic Whitening</h3>
+                <p>Shade improvement with supervised enamel-safe whitening.</p>
+              </div>
+            </article>
+
+            <article class="case-card" data-category="braces">
+              <button
+                type="button"
+                data-lightbox
+                data-image="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1400&q=80"
+                data-title="Orthodontic Planning"
+                aria-label="Open image preview for braces planning"
+              >
+                <span class="comparison">
+                  <img
+                    src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80"
+                    alt="Before orthodontic treatment planning with dental X-rays"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1617812191081-2a24e3f30e45?auto=format&fit=crop&w=700&q=80"
+                    alt="After orthodontic alignment with a confident smile"
+                  />
+                </span>
+              </button>
+              <div>
+                <span>Braces</span>
+                <h3>Alignment Case</h3>
+                <p>Bite-focused planning for cleaner alignment and function.</p>
+              </div>
+            </article>
+
+            <article class="case-card" data-category="implants">
+              <button
+                type="button"
+                data-lightbox
+                data-image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=80"
+                data-title="Implant Restoration"
+                aria-label="Open image preview for implant restoration"
+              >
+                <span class="comparison">
+                  <img
+                    src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80"
+                    alt="Before implant planning with diagnostic imaging"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80"
+                    alt="After implant planning in a modern dental clinic"
+                  />
+                </span>
+              </button>
+              <div>
+                <span>Implants</span>
+                <h3>Single-Tooth Implant</h3>
+                <p>Digitally planned replacement for comfort and stability.</p>
+              </div>
+            </article>
+
+            <article class="case-card" data-category="cosmetic-dentistry">
+              <button
+                type="button"
+                data-lightbox
+                data-image="https://images.unsplash.com/photo-1728342057953-94bfad8f0e7e?auto=format&fit=crop&w=1400&q=80"
+                data-title="Cosmetic Smile Design"
+                aria-label="Open image preview for cosmetic dentistry"
+              >
+                <span class="comparison">
+                  <img
+                    src="https://images.unsplash.com/photo-1588776814594-6d444894210e?auto=format&fit=crop&w=700&q=80"
+                    alt="Before cosmetic treatment consultation"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1617812191081-2a24e3f30e45?auto=format&fit=crop&w=700&q=80"
+                    alt="After cosmetic dentistry with natural smile"
+                  />
+                </span>
+              </button>
+              <div>
+                <span>Cosmetic Dentistry</span>
+                <h3>Smile Design</h3>
+                <p>Subtle refinements for shape, brightness, and symmetry.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+        <div class="container">
+          <div class="section-heading split">
+            <div>
+              <p class="eyebrow">Testimonials</p>
+              <h2 id="testimonials-title">Trusted by Patients Who Value Gentle Expertise</h2>
+            </div>
+            <div class="carousel-controls" aria-label="Testimonial controls">
+              <button type="button" data-testimonial-prev aria-label="Previous testimonial">
+                <i data-lucide="chevron-left" aria-hidden="true"></i>
+              </button>
+              <button type="button" data-testimonial-next aria-label="Next testimonial">
+                <i data-lucide="chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="testimonial-track" data-testimonial-track data-cms-section="testimonials">
+            <article class="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+                alt="Patient Sara Malik"
+              />
+              <div>
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <p>
+                  "The consultation was calm and clear. I understood the treatment plan before we started, and the final result feels completely natural."
+                </p>
+                <h3>Sara Malik</h3>
+                <span>Cosmetic Dentistry Patient</span>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                alt="Patient Hamza Farooq"
+              />
+              <div>
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <p>
+                  "I came in with severe tooth pain and was treated the same day. The root canal was much easier than I expected."
+                </p>
+                <h3>Hamza Farooq</h3>
+                <span>Root Canal Patient</span>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
+                alt="Patient Amina Sheikh"
+              />
+              <div>
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <p>
+                  "The clinic feels modern, clean, and welcoming. My implant planning was explained step by step, which made the process easier."
+                </p>
+                <h3>Amina Sheikh</h3>
+                <span>Implant Patient</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="faq" aria-labelledby="faq-title">
+        <div class="container narrow">
+          <div class="section-heading centered">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Common Treatment Questions</h2>
+          </div>
+
+          <div class="faq-list" data-cms-section="faqs">
+            <div class="faq-item open">
+              <button type="button" aria-expanded="true">
+                <span>Does professional whitening damage enamel?</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-panel">
+                <p>
+                  Professional whitening is planned around your tooth condition and gum health. Protective barriers and controlled materials help reduce sensitivity and protect enamel.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span>How long do dental implants last?</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-panel">
+                <p>
+                  With careful planning, healthy gums, and regular maintenance visits, dental implants can last many years and often become a long-term tooth replacement option.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span>Is root canal treatment painful?</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-panel">
+                <p>
+                  Local anesthesia and modern techniques make root canal treatment much more comfortable than many patients expect. The goal is to remove infection and relieve pain.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" aria-expanded="false">
+                <span>Can I book an emergency appointment?</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="faq-panel">
+                <p>
+                  Yes. Call or send a WhatsApp message for toothache, swelling, trauma, broken restorations, or urgent dental pain.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section appointment-section" id="appointment" aria-labelledby="appointment-title">
+        <div class="container appointment-grid">
+          <div class="appointment-copy">
+            <p class="eyebrow">Appointment</p>
+            <h2 id="appointment-title">Schedule Your Visit</h2>
+            <p>
+              Share your details and the clinic team will contact you to confirm timing, treatment needs, and next steps.
+            </p>
+            <div class="clinic-photo">
+              <img
+                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+                alt="Bright modern dental treatment room with advanced equipment"
+              />
+            </div>
+          </div>
+
+          <form class="appointment-form" data-appointment-form>
+            <div class="form-row">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="Your name" />
+            </div>
+            <div class="form-row two-columns">
+              <div>
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="+92 300 1234567" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+              </div>
+            </div>
+            <div class="form-row two-columns">
+              <div>
+                <label for="service">Service Required</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a service</option>
+                  <option>Dental Cleaning</option>
+                  <option>Root Canal Treatment</option>
+                  <option>Teeth Whitening</option>
+                  <option>Dental Implants</option>
+                  <option>Braces &amp; Orthodontics</option>
+                  <option>Tooth Extraction</option>
+                  <option>Fillings</option>
+                  <option>Cosmetic Dentistry</option>
+                </select>
+              </div>
+              <div>
+                <label for="preferredDate">Preferred Date</label>
+                <input id="preferredDate" name="preferredDate" type="date" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us what you would like help with"></textarea>
+            </div>
+            <button class="btn btn-primary form-submit" type="submit">
+              <span>Schedule Your Visit</span>
+              <i data-lucide="send" aria-hidden="true"></i>
+            </button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section-soft contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Clinic Information</h2>
+            <div class="contact-list">
+              <a href="https://maps.google.com/?q=Suite%2012%20Main%20Boulevard%20Lahore" target="_blank" rel="noopener" data-cms-map-link>
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+                <span>
+                  <strong>Clinic Address</strong>
+                  <span data-cms-field="contact.address">Suite 12, Main Boulevard, Lahore</span>
+                </span>
+              </a>
+              <a href="tel:+923001234567" data-cms-phone-link>
+                <i data-lucide="phone" aria-hidden="true"></i>
+                <span>
+                  <strong>Phone Number</strong>
+                  <span data-cms-field="contact.phone">+92 300 1234567</span>
+                </span>
+              </a>
+              <a href="https://wa.me/923001234567" target="_blank" rel="noopener" data-cms-whatsapp-link>
+                <i data-lucide="message-circle" aria-hidden="true"></i>
+                <span>
+                  <strong>WhatsApp</strong>
+                  <span data-cms-field="contact.whatsapp">+92 300 1234567</span>
+                </span>
+              </a>
+              <a href="mailto:appointments@hazzardental.com" data-cms-email-link>
+                <i data-lucide="mail" aria-hidden="true"></i>
+                <span>
+                  <strong>Email</strong>
+                  <span data-cms-field="contact.email">appointments@hazzardental.com</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hours-card">
+            <h3>Working Hours</h3>
+            <dl>
+              <div>
+                <dt>Monday - Friday</dt>
+                <dd data-cms-field="hours.weekdays">9:00 AM - 6:00 PM</dd>
+              </div>
+              <div>
+                <dt>Saturday</dt>
+                <dd data-cms-field="hours.weekend">10:00 AM - 4:00 PM</dd>
+              </div>
+              <div>
+                <dt>Sunday</dt>
+                <dd>Emergency calls only</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="map-placeholder" aria-label="Embedded Google Map placeholder">
+            <div class="map-grid" aria-hidden="true"></div>
+            <div class="map-pin">
+              <i data-lucide="map-pin" aria-hidden="true"></i>
+              <span>Hazzar Dental Surgery</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#home" aria-label="Dr. Hazzar Ahmed home">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span>
+              <strong data-cms-field="doctor.name">Dr. Hazzar Ahmed</strong>
+              <small>Dental Surgeon</small>
+            </span>
+          </a>
+          <p>Modern dental care for healthy, confident smiles.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#appointment">Book Appointment</a>
+        </div>
+        <div>
+          <h3>Contact Details</h3>
+          <a href="tel:+923001234567" data-cms-phone-link data-cms-field="contact.phone">+92 300 1234567</a>
+          <a href="mailto:appointments@hazzardental.com" data-cms-email-link data-cms-field="contact.email">appointments@hazzardental.com</a>
+          <span data-cms-field="contact.address">Suite 12, Main Boulevard, Lahore</span>
+        </div>
+        <div>
+          <h3>Social</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram" data-cms-social="instagram">
+              <i data-lucide="camera" aria-hidden="true"></i>
+            </a>
+            <a href="#" aria-label="Facebook" data-cms-social="facebook">
+              <i data-lucide="message-square" aria-hidden="true"></i>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <i data-lucide="briefcase-business" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; <span data-year></span> Dr. Hazzar Ahmed Dental Surgery. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div class="lightbox" data-lightbox-modal aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close image preview">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+      <figure>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" data-lightbox-image />
+        <figcaption data-lightbox-caption></figcaption>
+      </figure>
+    </div>
+  </body>
+</html>
