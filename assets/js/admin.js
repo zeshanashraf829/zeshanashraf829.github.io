@@ -54,6 +54,7 @@ const starterContent = {
     social: {
       instagram: "",
       facebook: "",
+      linkedin: "",
     },
   },
   services: [

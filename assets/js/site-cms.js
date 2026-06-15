@@ -99,6 +99,7 @@ function applySettings(settings) {
 
   document.querySelectorAll("[data-cms-social='instagram']").forEach((link) => setHref(link, settings.social?.instagram));
   document.querySelectorAll("[data-cms-social='facebook']").forEach((link) => setHref(link, settings.social?.facebook));
+  document.querySelectorAll("[data-cms-social='linkedin']").forEach((link) => setHref(link, settings.social?.linkedin));
 }
 
 function getNested(target, path) {

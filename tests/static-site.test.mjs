@@ -154,6 +154,25 @@ test("default clinic identity uses Dr Asif Mushtaq details and circular logo", (
   assert.match(css, /\.brand-mark\s+img\s*\{[^}]*border-radius:\s*50%/s);
 });
 
+test("footer social links use recognizable brand icons and CMS-managed URLs", () => {
+  const html = readHtml();
+  const admin = readFileSync(adminPath, "utf8");
+  const adminJs = readFileSync(adminJsPath, "utf8");
+  const siteCms = readFileSync(siteCmsPath, "utf8");
+  const css = readFileSync(stylesPath, "utf8");
+
+  for (const network of ["instagram", "facebook", "linkedin"]) {
+    assert.match(html, new RegExp(`data-cms-social="${network}"`), `${network} link should be CMS-managed`);
+    assert.match(html, new RegExp(`data-social-icon="${network}"`), `${network} should use a brand SVG icon`);
+    assert.match(siteCms, new RegExp(`social\\?\\.${network}`), `${network} URL should hydrate from site settings`);
+    assert.match(adminJs, new RegExp(`${network}: ""`), `${network} should exist in starter content`);
+  }
+
+  assert.match(admin, /name="social\.linkedin"/, "Admin settings should include a LinkedIn URL field");
+  assert.match(css, /\.social-icon\s*\{[^}]*width:\s*20px/s, "Brand SVG icons should have stable sizing");
+  assert.doesNotMatch(html, /data-lucide="(?:camera|message-square|briefcase-business)"/);
+});
+
 test("public site is wired for Firebase CMS hydration and appointment storage", () => {
   const html = readHtml();
 
