@@ -170,6 +170,11 @@ test("footer social links use recognizable brand icons and CMS-managed URLs", ()
 
   assert.match(admin, /name="social\.linkedin"/, "Admin settings should include a LinkedIn URL field");
   assert.match(css, /\.social-icon\s*\{[^}]*width:\s*20px/s, "Brand SVG icons should have stable sizing");
+  assert.match(
+    css,
+    /\.social-links\s+a\s*\{[^}]*display:\s*inline-grid;[^}]*place-items:\s*center/s,
+    "Footer social links should center icons inside their square buttons"
+  );
   assert.doesNotMatch(html, /data-lucide="(?:camera|message-square|briefcase-business)"/);
 });
 
