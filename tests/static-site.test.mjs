@@ -319,6 +319,8 @@ test("publications render as professional outbound links and are manageable from
   assert.match(html, /href="#publications"/);
   assert.match(html, /An overview of dental impression disinfection techniques/);
   assert.match(html, /target="_blank" rel="noopener"/);
+  assert.doesNotMatch(html, /<article class="publication-card">\s*<i data-lucide="external-link"/);
+  assert.match(html, /<a href="https:\/\/www\.jpda\.com\.pk\/an-overview-of-dental-impression-disinfection-techniques-a-literature-review" target="_blank" rel="noopener">\s*<i data-lucide="external-link"/);
 
   for (const field of ["title", "description", "link", "order", "active"]) {
     assert.match(adminJs, new RegExp(field), `Publication seed/admin code should include ${field}`);
@@ -327,4 +329,6 @@ test("publications render as professional outbound links and are manageable from
   assert.match(siteCms, /function renderPublications/);
   assert.match(siteCms, /target="_blank" rel="noopener"/);
   assert.match(siteCms, /escapeAttribute\(item\.link/);
+  assert.doesNotMatch(siteCms, /<article class="publication-card">\s*<i data-lucide="\$\{escapeAttribute\(item\.icon/);
+  assert.match(siteCms, /<a href="\$\{escapeAttribute\(item\.link \|\| "#"\)\}" target="_blank" rel="noopener">\s*<i data-lucide="external-link"/);
 });

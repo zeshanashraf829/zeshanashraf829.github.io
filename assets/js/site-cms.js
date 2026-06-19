@@ -213,10 +213,12 @@ function renderPublications(items) {
     .map(
       (item) => `
         <article class="publication-card">
-          <i data-lucide="external-link" aria-hidden="true"></i>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.description)}</p>
-          <a href="${escapeAttribute(item.link || "#")}" target="_blank" rel="noopener">View publication</a>
+          <a href="${escapeAttribute(item.link || "#")}" target="_blank" rel="noopener">
+            <i data-lucide="external-link" aria-hidden="true"></i>
+            View publication
+          </a>
         </article>
       `
     )
