@@ -267,10 +267,15 @@ test("admin dashboard and Firebase modules exist with required capabilities", ()
   assert.match(adminJs, /contentVersion:\s*CURRENT_CONTENT_VERSION/);
   assert.match(admin, /data-admin-view="publications"/);
   assert.match(admin, /data-admin-form="publications"/);
+  assert.match(admin, /Add \/ Edit Publication/);
+  assert.match(admin, /Existing Publications/);
   assert.match(admin, /name="title"[^>]*placeholder="Publication title"/);
   assert.match(admin, /name="description"/);
   assert.match(admin, /name="link"[^>]*type="url"/);
+  assert.match(admin, /data-publications-list-heading/);
   assert.match(adminJs, /publications:\s*\[/);
+  assert.match(adminJs, /Default publications are not loaded yet/);
+  assert.match(adminJs, /\$\$\(\"\[data-seed-content\]\"\)/);
   assert.match(client, /publications:\s*"publications"/);
   assert.match(adminJs, /signInAdmin/);
   assert.doesNotMatch(adminJs, /uploadImageFile|uploadOptionalFile/);

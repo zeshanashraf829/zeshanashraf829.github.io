@@ -284,7 +284,13 @@
             <div class="admin-section-heading">
               <div>
                 <h2>Publications</h2>
-                <p>Add research publications with links shown on the public website.</p>
+                <p>Review, add, update, or delete research publications shown on the public website.</p>
+              </div>
+            </div>
+            <div class="admin-subsection-heading">
+              <div>
+                <h3>Add / Edit Publication</h3>
+                <p>Use this form to add a new publication, or click Edit from the existing list to update one.</p>
               </div>
             </div>
             <form class="admin-editor" data-admin-form="publications">
@@ -314,6 +320,16 @@
               <button class="btn btn-primary" type="submit">Save Publication</button>
               <button class="btn btn-secondary" type="reset">Clear</button>
             </form>
+            <div class="admin-list-heading" data-publications-list-heading>
+              <div>
+                <h3>Existing Publications</h3>
+                <p>Visible records appear on the website. Use Edit to update details or Delete to remove a record.</p>
+              </div>
+              <button class="btn btn-secondary" type="button" data-seed-content>
+                <i data-lucide="database" aria-hidden="true"></i>
+                <span>Load Default Publications</span>
+              </button>
+            </div>
             <div class="admin-list" data-list="publications"></div>
           </section>
 

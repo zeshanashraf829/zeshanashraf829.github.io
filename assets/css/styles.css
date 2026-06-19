@@ -1611,11 +1611,32 @@ textarea:focus {
 }
 
 .admin-topbar,
-.admin-section-heading {
+.admin-section-heading,
+.admin-subsection-heading,
+.admin-list-heading {
   display: grid;
   gap: 16px;
   align-items: end;
   margin-bottom: 22px;
+}
+
+.admin-subsection-heading,
+.admin-list-heading {
+  margin-bottom: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.admin-subsection-heading h3,
+.admin-list-heading h3 {
+  margin-bottom: 6px;
+}
+
+.admin-subsection-heading p,
+.admin-list-heading p {
+  margin-bottom: 0;
 }
 
 .admin-topbar-actions {
@@ -1688,6 +1709,10 @@ textarea:focus {
   border-radius: var(--radius);
   background: var(--white);
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+}
+
+.admin-empty .btn {
+  margin-top: 10px;
 }
 
 .admin-card {
@@ -1795,7 +1820,8 @@ textarea:focus {
   }
 
   .admin-topbar,
-  .admin-section-heading {
+  .admin-section-heading,
+  .admin-list-heading {
     grid-template-columns: 1fr auto;
   }
 

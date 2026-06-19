@@ -264,13 +264,37 @@ function renderTestimonials(rows) {
 }
 
 function renderPublications(rows) {
-  renderSimpleList("publications", rows, (item) => `
-    <i data-lucide="book-open-check" aria-hidden="true"></i>
-    <h3>${escapeHtml(item.title || "Untitled publication")}</h3>
-    <p>${escapeHtml(item.description || "")}</p>
-    ${item.link ? `<a href="${escapeAttribute(item.link)}" target="_blank" rel="noopener">Open link</a>` : ""}
-    <small>Order ${Number(item.order || 0)} ${item.active === false ? "• Hidden" : "• Visible"}</small>
-  `);
+  const list = $("[data-list='publications']");
+  if (!list) return;
+
+  list.innerHTML = rows.length
+    ? rows
+        .map(
+          (item) => `
+            <article class="admin-card">
+              <div>
+                <i data-lucide="book-open-check" aria-hidden="true"></i>
+                <h3>${escapeHtml(item.title || "Untitled publication")}</h3>
+                <p>${escapeHtml(item.description || "")}</p>
+                ${item.link ? `<a href="${escapeAttribute(item.link)}" target="_blank" rel="noopener">Open link</a>` : ""}
+                <small>Order ${Number(item.order || 0)} ${item.active === false ? "• Hidden" : "• Visible"}</small>
+              </div>
+              ${cardActions("publications", item.id)}
+            </article>
+          `
+        )
+        .join("")
+    : `
+      <div class="admin-empty">
+        <h3>Default publications are not loaded yet</h3>
+        <p>The public website can show fallback publication cards, but they become editable here only after they are saved in Firestore.</p>
+        <button class="btn btn-secondary" type="button" data-seed-content>
+          <i data-lucide="database" aria-hidden="true"></i>
+          <span>Load Default Publications</span>
+        </button>
+      </div>
+    `;
+  window.lucide?.createIcons();
 }
 
 function renderFaqs(rows) {
@@ -388,7 +412,7 @@ function bindEvents() {
     setStatus("");
   });
 
-  $("[data-seed-content]")?.addEventListener("click", async () => {
+  async function seedStarterContent() {
     if (!window.confirm("Load starter content into Firebase? Existing matching starter records will be updated.")) return;
     try {
       setStatus("Loading starter content...");
@@ -405,6 +429,10 @@ function bindEvents() {
     } catch (error) {
       setStatus(error.message, "error");
     }
+  }
+
+  $$("[data-seed-content]").forEach((button) => {
+    button.addEventListener("click", seedStarterContent);
   });
 
   $$("[data-admin-form]").forEach((form) => {
