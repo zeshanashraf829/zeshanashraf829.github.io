@@ -10,6 +10,7 @@ export const CMS_COLLECTIONS = {
   publications: "publications",
   socialLinks: "socialLinks",
   faqs: "faqs",
+  cvHighlights: "cvHighlights",
   settings: "siteSettings",
 };
 

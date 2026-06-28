@@ -88,6 +88,10 @@
               <i data-lucide="book-open-check" aria-hidden="true"></i>
               Publications
             </button>
+            <button type="button" data-admin-view="cvHighlights">
+              <i data-lucide="bar-chart-3" aria-hidden="true"></i>
+              Highlights
+            </button>
             <button type="button" data-admin-view="faqs">
               <i data-lucide="circle-help" aria-hidden="true"></i>
               FAQ
@@ -331,6 +335,55 @@
               </button>
             </div>
             <div class="admin-list" data-list="publications"></div>
+          </section>
+
+          <section class="admin-panel" data-admin-panel="cvHighlights">
+            <div class="admin-section-heading">
+              <div>
+                <h2>Highlights</h2>
+                <p>Manage the Clinical Volume, Training, and Research cards shown on the public website.</p>
+              </div>
+            </div>
+            <form class="admin-editor" data-admin-form="cvHighlights">
+              <input type="hidden" name="id" />
+              <div class="form-row two-columns">
+                <div>
+                  <label>Card Title</label>
+                  <input name="title" required placeholder="Clinical Procedure Experience" />
+                </div>
+                <div>
+                  <label>Lucide Icon</label>
+                  <input name="icon" required placeholder="bar-chart-3" />
+                </div>
+              </div>
+              <div class="form-row">
+                <label>Bullet Points</label>
+                <textarea name="items" rows="6" required placeholder="One bullet point per line"></textarea>
+              </div>
+              <div class="form-row two-columns">
+                <div>
+                  <label>Order</label>
+                  <input name="order" type="number" value="1" min="0" />
+                </div>
+                <label class="admin-check">
+                  <input name="active" type="checkbox" checked />
+                  Visible on website
+                </label>
+              </div>
+              <button class="btn btn-primary" type="submit">Save Highlight</button>
+              <button class="btn btn-secondary" type="reset">Clear</button>
+            </form>
+            <div class="admin-list-heading">
+              <div>
+                <h3>Existing Highlights</h3>
+                <p>Visible records appear on the website. Use Edit to update details or Delete to remove a record.</p>
+              </div>
+              <button class="btn btn-secondary" type="button" data-seed-cv-highlights>
+                <i data-lucide="database" aria-hidden="true"></i>
+                <span>Load Default Highlights</span>
+              </button>
+            </div>
+            <div class="admin-list" data-list="cvHighlights"></div>
           </section>
 
           <section class="admin-panel" data-admin-panel="faqs">

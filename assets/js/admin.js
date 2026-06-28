@@ -26,6 +26,7 @@ const state = {
     gallery: [],
     testimonials: [],
     publications: [],
+    cvHighlights: [],
     socialLinks: [],
     faqs: [],
   },
@@ -97,6 +98,11 @@ const starterContent = {
     ["implant-prostheses", { question: "What is an implant-supported prosthesis?", answer: "It is a crown, bridge, overdenture, or full-arch restoration supported by dental implants and planned to restore function, comfort, and esthetics.", order: 2, active: true }],
     ["prosthodontist", { question: "Why see a prosthodontist?", answer: "A prosthodontist has specialist training in restoring and replacing teeth, including crowns, bridges, dentures, veneers, implants, bite rehabilitation, and complex oral rehabilitation.", order: 3, active: true }],
     ["cv-download", { question: "Can I review Dr Asif's professional CV?", answer: "Yes. Use the Download CV button on the website to review his FCPS Prosthodontics training, clinical experience, publications, and professional background.", order: 4, active: true }],
+  ],
+  cvHighlights: [
+    ["clinical-procedure-experience", { title: "Clinical Procedure Experience", icon: "bar-chart-3", items: ["Full mouth rehabilitation cases - 100+", "Porcelain fused to metal crowns - 1000+", "All ceramic crowns and veneers - 1000+", "Conventional and cantilever bridges - 500+", "Implant-supported fixed prostheses - 500+"], order: 1, active: true }],
+    ["academic-specialist-training", { title: "Academic & Specialist Training", icon: "graduation-cap", items: ["FCPS Prosthodontics, College of Physicians & Surgeons Pakistan", "BDS, de'Montmorency College of Dentistry, Lahore", "Assistant Professor, Akhtar Saeed Medical & Dental College", "Senior Registrar experience in Lahore and Riyadh", "English C2 and Arabic clinical communication experience"], order: 2, active: true }],
+    ["selected-publications", { title: "Selected Publications", icon: "book-open-check", items: ["An overview of dental impression disinfection techniques - JPDA, 2018", "Pharyngeal obturator prosthetic rehabilitation of velopharyngeal insufficiency - JCPSP, 2019", "Assessment of denture hygiene knowledge and practices among complete denture wearers - JPDA, 2019", "Analysis of golden proportion in maxillary anterior dentition - 2022"], order: 3, active: true }],
   ],
 };
 
@@ -317,6 +323,39 @@ function renderFaqs(rows) {
   `);
 }
 
+function renderCvHighlights(rows) {
+  const list = $("[data-list='cvHighlights']");
+  if (!list) return;
+
+  list.innerHTML = rows.length
+    ? rows
+        .map(
+          (item) => `
+            <article class="admin-card">
+              <div>
+                <i data-lucide="${escapeHtml(item.icon || "circle")}" aria-hidden="true"></i>
+                <h3>${escapeHtml(item.title || "Untitled card")}</h3>
+                <ul>${(Array.isArray(item.items) ? item.items : []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+                <small>Order ${Number(item.order || 0)} ${item.active === false ? "• Hidden" : "• Visible"}</small>
+              </div>
+              ${cardActions("cvHighlights", item.id)}
+            </article>
+          `
+        )
+        .join("")
+    : `
+      <div class="admin-empty">
+        <h3>Default highlights are not loaded yet</h3>
+        <p>The public website can show fallback highlight cards, but they become editable here only after they are saved in Firestore.</p>
+        <button class="btn btn-secondary" type="button" data-seed-cv-highlights>
+          <i data-lucide="database" aria-hidden="true"></i>
+          <span>Load Default Highlights</span>
+        </button>
+      </div>
+    `;
+  window.lucide?.createIcons();
+}
+
 function renderSimpleList(collection, rows, bodyRenderer) {
   const list = $(`[data-list='${collection}']`);
   if (!list) return;
@@ -341,6 +380,13 @@ async function handleCollectionForm(event, collection) {
   const id = form.elements.id?.value?.trim() || "";
   const data = formToObject(form);
 
+  if (collection === "cvHighlights" && typeof data.items === "string") {
+    data.items = data.items
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+  }
+
   await saveDocument(getFirestoreCollection(collection), data, id);
   form.reset();
   if (form.elements.id) form.elements.id.value = "";
@@ -360,6 +406,7 @@ function collectionToFirestore(collection) {
     gallery: CMS_COLLECTIONS.gallery,
     testimonials: CMS_COLLECTIONS.testimonials,
     publications: CMS_COLLECTIONS.publications,
+    cvHighlights: CMS_COLLECTIONS.cvHighlights,
     socialLinks: CMS_COLLECTIONS.socialLinks,
     faqs: CMS_COLLECTIONS.faqs,
   }[collection];
@@ -411,6 +458,11 @@ async function startSubscriptions() {
     renderFaqs(rows);
   }));
 
+  state.unsubs.push(await subscribeCollection(CMS_COLLECTIONS.cvHighlights, (rows) => {
+    state.records.cvHighlights = rows;
+    renderCvHighlights(rows);
+  }));
+
   await loadSettingsForm();
 }
 
@@ -436,6 +488,19 @@ function bindEvents() {
     setStatus("");
   });
 
+  async function seedCvHighlights() {
+    if (!window.confirm("Load default highlights into Firebase? Existing matching default records will be updated.")) return;
+    try {
+      setStatus("Loading default highlights...");
+      await Promise.all(
+        starterContent.cvHighlights.map(([id, data]) => saveDocument(CMS_COLLECTIONS.cvHighlights, data, id))
+      );
+      setStatus("Default highlights loaded.", "success");
+    } catch (error) {
+      setStatus(error.message, "error");
+    }
+  }
+
   async function seedStarterContent() {
     if (!window.confirm("Load starter content into Firebase? Existing matching starter records will be updated.")) return;
     try {
@@ -446,6 +511,7 @@ function bindEvents() {
         ...starterContent.gallery.map(([id, data]) => saveDocument(CMS_COLLECTIONS.gallery, data, id)),
         ...starterContent.testimonials.map(([id, data]) => saveDocument(CMS_COLLECTIONS.testimonials, data, id)),
         ...starterContent.publications.map(([id, data]) => saveDocument(CMS_COLLECTIONS.publications, data, id)),
+        ...starterContent.cvHighlights.map(([id, data]) => saveDocument(CMS_COLLECTIONS.cvHighlights, data, id)),
         ...starterContent.socialLinks.map(([id, data]) => saveDocument(CMS_COLLECTIONS.socialLinks, data, id)),
         ...starterContent.faqs.map(([id, data]) => saveDocument(CMS_COLLECTIONS.faqs, data, id)),
       ]);
@@ -477,6 +543,7 @@ function bindEvents() {
 
   document.addEventListener("click", async (event) => {
     const seedButton = event.target.closest("[data-seed-content]");
+    const seedCvHighlightsButton = event.target.closest("[data-seed-cv-highlights]");
     const editButton = event.target.closest("[data-edit-record]");
     const deleteButton = event.target.closest("[data-delete-record]");
     const statusButton = event.target.closest("[data-appointment-status]");
@@ -486,11 +553,21 @@ function bindEvents() {
       return;
     }
 
+    if (seedCvHighlightsButton) {
+      await seedCvHighlights();
+      return;
+    }
+
     if (editButton) {
       const collection = editButton.dataset.editRecord;
       const record = state.records[collection]?.find((item) => item.id === editButton.dataset.id);
       const form = $(`[data-admin-form='${collection}']`);
-      if (record && form) fillForm(form, record);
+      if (record && form) {
+        fillForm(form, record);
+        if (collection === "cvHighlights" && form.elements.items) {
+          form.elements.items.value = Array.isArray(record.items) ? record.items.join("\n") : String(record.items || "");
+        }
+      }
     }
 
     if (deleteButton) {

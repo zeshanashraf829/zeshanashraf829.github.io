@@ -21,7 +21,7 @@ export async function loadPublicCms() {
   if (!root || !isFirebaseConfigured()) return;
 
   try {
-    const [settings, services, gallery, testimonials, publications, socialLinks, faqs] = await Promise.all([
+    const [settings, services, gallery, testimonials, publications, socialLinks, faqs, cvHighlights] = await Promise.all([
       getSiteSettings(),
       getOrderedCollection(CMS_COLLECTIONS.services),
       getOrderedCollection(CMS_COLLECTIONS.gallery),
@@ -29,6 +29,7 @@ export async function loadPublicCms() {
       getOrderedCollection(CMS_COLLECTIONS.publications),
       getOrderedCollection(CMS_COLLECTIONS.socialLinks),
       getOrderedCollection(CMS_COLLECTIONS.faqs),
+      getOrderedCollection(CMS_COLLECTIONS.cvHighlights),
     ]);
 
     if (!isCurrentCmsContent(settings)) {
@@ -43,6 +44,7 @@ export async function loadPublicCms() {
     renderPublications(publications.filter(isActive));
     renderSocialLinks(socialLinks);
     renderFaqs(faqs.filter(isActive));
+    renderCvHighlights(cvHighlights.filter(isActive));
     window.DentalSite?.refreshCmsInteractions();
   } catch (error) {
     console.warn("Could not load Firebase CMS content.", error);
@@ -272,6 +274,27 @@ function renderSocialLinks(items) {
         </a>
       `;
     })
+    .join("");
+}
+
+function renderCvHighlights(items) {
+  const container = document.querySelector("[data-cms-section='cv-highlights']");
+  if (!container || !items.length) return;
+
+  container.innerHTML = items
+    .map(
+      (item) => `
+        <article>
+          <i data-lucide="${escapeAttribute(item.icon || "circle")}" aria-hidden="true"></i>
+          <h3>${escapeHtml(item.title)}</h3>
+          <ul>
+            ${(Array.isArray(item.items) ? item.items : [])
+              .map((line) => `<li>${escapeHtml(line)}</li>`)
+              .join("")}
+          </ul>
+        </article>
+      `
+    )
     .join("");
 }
 
